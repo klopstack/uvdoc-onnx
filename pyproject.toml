@@ -1,0 +1,40 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "uvdoc-onnx"
+version = "0.1.0"
+description = "UVDoc document dewarping (crumpled-paper flattening) via ONNX Runtime — no torch required"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Ben Klop", email = "benklop@gmail.com" }]
+requires-python = ">=3.10"
+dependencies = [
+    "onnxruntime>=1.17",
+    "numpy>=1.24",
+    "opencv-python-headless>=4.8",
+    "pillow>=10.0",
+]
+keywords = ["document", "dewarp", "unwarp", "uvdoc", "onnx", "ocr", "preprocessing"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Topic :: Multimedia :: Graphics",
+    "Topic :: Scientific/Engineering :: Image Processing",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8"]
+
+[tool.setuptools.packages.find]
+include = ["uvdoc_onnx*"]
+
+[tool.setuptools.package-data]
+uvdoc_onnx = ["models/*.onnx"]
